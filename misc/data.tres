@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://misc/data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+names = [ "task 1" ]
+checks = [ false ]
+progresses = [  ]
+notes = [ "" ]

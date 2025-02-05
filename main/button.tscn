@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/rect_classic.png" type="Texture" id=1]
+[ext_resource path="res://main/button.gd" type="Script" id=2]
+
+[node name="button" type="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -239.0
+margin_top = -134.0
+margin_right = -214.0
+margin_bottom = -109.0
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource( 1 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+margin_left = -116.0
+margin_top = -42.0
+margin_right = 727.0
+margin_bottom = 362.0
+mouse_filter = 2
+
+[node name="hover" type="AudioStreamPlayer" parent="ColorRect"]
+
+[node name="click" type="AudioStreamPlayer" parent="ColorRect"]
+
+[node name="release" type="AudioStreamPlayer" parent="ColorRect"]
+
+[connection signal="mouse_entered" from="." to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_button_mouse_exited"]

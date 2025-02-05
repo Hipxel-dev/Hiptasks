@@ -1,0 +1,407 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://main/button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://misc/picotron.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://main/main.gd" type="Script" id=3]
+[ext_resource path="res://art/check.png" type="Texture" id=4]
+[ext_resource path="res://art/rect_classic.png" type="Texture" id=5]
+[ext_resource path="res://main/task_button.gd" type="Script" id=6]
+[ext_resource path="res://misc/sfx/item_open_2.wav" type="AudioStream" id=8]
+[ext_resource path="res://misc/sfx/click_very_heavy.wav" type="AudioStream" id=9]
+[ext_resource path="res://misc/sfx/click_light.wav" type="AudioStream" id=10]
+[ext_resource path="res://art/rect_shadowed.png" type="Texture" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 7.0
+bg_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 55
+border_width_right = 55
+border_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_right = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+
+[sub_resource type="StyleBoxLine" id=13]
+color = Color( 0, 0, 0, 0 )
+thickness = 10
+vertical = true
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Theme" id=15]
+VScrollBar/styles/grabber = SubResource( 10 )
+VScrollBar/styles/grabber_highlight = SubResource( 11 )
+VScrollBar/styles/grabber_pressed = SubResource( 12 )
+VScrollBar/styles/scroll = SubResource( 13 )
+VScrollBar/styles/scroll_focus = SubResource( 14 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 2.0
+bg_color = Color( 0, 0, 0, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 1, 1, 1, 1 )
+border_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.439216, 0.439216, 0.439216, 1 )
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+outline_size = 1
+outline_color = Color( 1, 1, 1, 0.254902 )
+font_data = ExtResource( 2 )
+
+[node name="main" type="NinePatchRect"]
+margin_top = 12.0
+margin_right = 480.0
+margin_bottom = 270.0
+texture = ExtResource( 5 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_top = 2.0
+margin_right = 480.0
+margin_bottom = 271.0
+color = Color( 0, 0, 0, 0.415686 )
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+margin_top = -12.0
+margin_right = 480.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 1.0
+margin_top = -11.0
+margin_right = 479.0
+margin_bottom = 2.0
+focus_mode = 2
+
+[node name="task_container" type="Control" parent="."]
+show_behind_parent = true
+margin_right = 282.0
+margin_bottom = 339.0
+rect_clip_content = true
+
+[node name="task_button" type="Node2D" parent="task_container"]
+position = Vector2( 23, 17 )
+script = ExtResource( 6 )
+
+[node name="button" parent="task_container/task_button" instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 1.0
+margin_right = 230.0
+margin_bottom = 22.0
+mouse_filter = 1
+hover_sfx_pitch = 3
+click_sfx_pitch = 1
+release_sfx = ExtResource( 8 )
+release_sfx_pitch = 3
+
+[node name="dlt" type="ColorRect" parent="task_container/task_button/button"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 4.0
+margin_bottom = 17.0
+
+[node name="task" type="LineEdit" parent="task_container/task_button/button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.0
+margin_top = -10.5
+margin_right = 115.0
+margin_bottom = 11.5
+mouse_filter = 1
+custom_colors/selection_color = Color( 0.396078, 0.396078, 0.396078, 0.333333 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/read_only = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+context_menu_enabled = false
+
+[node name="is_done" parent="task_container/task_button" instance=ExtResource( 1 )]
+margin_left = 231.0
+margin_top = 3.0
+margin_right = 249.0
+margin_bottom = 20.0
+release_sfx = ExtResource( 9 )
+release_sfx_pitch = 2
+hover_expand = 0.0
+
+[node name="check" type="TextureRect" parent="task_container/task_button/is_done"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -7.5
+margin_right = 8.0
+margin_bottom = 7.5
+texture = ExtResource( 4 )
+
+[node name="delete" type="AudioStreamPlayer" parent="task_container/task_button"]
+stream = ExtResource( 10 )
+
+[node name="anchor" type="Position2D" parent="task_container"]
+position = Vector2( 23, 17 )
+
+[node name="new" type="Node2D" parent="task_container"]
+position = Vector2( 23, -6 )
+
+[node name="btn_new" parent="task_container/new" instance=ExtResource( 1 )]
+margin_left = 1.0
+margin_top = 25.0
+margin_right = 63.0
+margin_bottom = 41.0
+hover_expand = 0.0
+
+[node name="task" type="Label" parent="task_container/new/btn_new"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.5
+margin_top = -4.0
+margin_right = 55.5
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 1 )
+text = "+ new task"
+
+[node name="note" type="ColorRect" parent="."]
+margin_left = 281.0
+margin_top = 2.0
+margin_right = 478.0
+margin_bottom = 256.0
+color = Color( 0, 0, 0, 0.333333 )
+
+[node name="exit" parent="note" instance=ExtResource( 1 )]
+margin_left = -111.5
+margin_top = -125.0
+margin_right = -99.5
+margin_bottom = -113.0
+
+[node name="exit" type="Label" parent="note/exit"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -2.0
+margin_top = -4.5
+margin_right = 38.0
+margin_bottom = 9.5
+custom_fonts/font = SubResource( 16 )
+text = "x"
+
+[node name="tasknote" type="TextEdit" parent="note"]
+margin_left = 6.0
+margin_top = 21.0
+margin_right = 191.0
+margin_bottom = 263.0
+theme = SubResource( 15 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+wrap_enabled = true
+
+[node name="title" type="Label" parent="note"]
+modulate = Color( 0.545098, 0.545098, 0.545098, 1 )
+margin_top = 5.0
+margin_right = 197.0
+margin_bottom = 18.0
+rect_rotation = -359.999
+custom_fonts/font = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "title"
+align = 2
+
+[node name="scrollbar" type="Node2D" parent="."]
+
+[node name="NinePatchRect" type="ColorRect" parent="scrollbar"]
+margin_left = 10.0
+margin_top = 34.0
+margin_right = 11.0
+margin_bottom = 228.0
+color = Color( 1, 1, 1, 0.541176 )
+
+[node name="scroll" type="Node2D" parent="scrollbar"]
+
+[node name="button" parent="scrollbar/scroll" instance=ExtResource( 1 )]
+margin_left = 7.0
+margin_top = 39.0
+margin_right = 14.0
+margin_bottom = 64.0
+
+[node name="bar" type="ProgressBar" parent="."]
+margin_left = 60.0
+margin_top = -10.0
+margin_right = 277.0
+margin_bottom = 1.0
+custom_styles/fg = SubResource( 19 )
+custom_styles/bg = SubResource( 20 )
+value = 50.0
+percent_visible = false
+
+[node name="percentage" type="Label" parent="bar"]
+modulate = Color( 2, 2, 2, 1 )
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 472.0
+margin_bottom = 10.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 21 )
+text = "100%"
+
+[node name="task_window" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 288.0
+margin_top = -9.0
+margin_right = 756.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 3 )
+text = "1/4 tasks done!"
+
+[node name="title" type="Label" parent="."]
+margin_left = 8.0
+margin_top = -8.0
+margin_right = 476.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.172549 )
+custom_fonts/font = SubResource( 3 )
+text = "Hiptasks"
+
+[node name="window_manager" type="Control" parent="."]
+margin_top = -12.0
+margin_right = 480.0
+rect_clip_content = true
+
+[node name="minimize" parent="window_manager" instance=ExtResource( 1 )]
+margin_left = 193.0
+margin_top = -4.0
+margin_right = 213.0
+margin_bottom = 10.0
+texture = ExtResource( 11 )
+patch_margin_right = 4
+patch_margin_bottom = 4
+hover_expand = 0.0
+
+[node name="task" type="Label" parent="window_manager/minimize"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -3.0
+margin_top = -5.0
+margin_right = 77.0
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 1 )
+text = "-"
+
+[node name="exit" parent="window_manager" instance=ExtResource( 1 )]
+margin_left = 209.0
+margin_top = -4.0
+margin_right = 242.0
+margin_bottom = 10.0
+texture = ExtResource( 11 )
+patch_margin_right = 4
+patch_margin_bottom = 4
+hover_expand = 0.0
+
+[node name="task" type="Label" parent="window_manager/exit"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -5.0
+margin_right = 76.0
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 1 )
+text = "x"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_top = 1.0
+margin_right = 480.0
+margin_bottom = 257.0
+texture = ExtResource( 5 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="type" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+pitch_scale = 4.0
+
+[connection signal="text_changed" from="task_container/task_button/button/task" to="task_container/task_button" method="_on_task_text_changed"]
+[connection signal="text_entered" from="task_container/task_button/button/task" to="task_container/task_button" method="_on_task_text_entered"]
+[connection signal="text_changed" from="note/tasknote" to="." method="_on_tasknote_text_changed"]
+[connection signal="mouse_entered" from="window_manager" to="." method="_on_window_manager_mouse_entered"]
+[connection signal="mouse_exited" from="window_manager" to="." method="_on_window_manager_mouse_exited"]
